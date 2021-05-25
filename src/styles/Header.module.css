@@ -1,0 +1,9 @@
+.header {
+  background-color: #3a4e54;
+  border-top: 0.2em inset white;
+  border-bottom: 0.2em inset #dbae58;
+}
+
+.brand {
+  color: #8e9b97;
+}
