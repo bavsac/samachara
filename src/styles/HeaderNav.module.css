@@ -1,3 +1,21 @@
 .headerNav {
+  display: flex;
   background-color: #3a4e54;
+  justify-content: center;
+}
+
+.headerNav:hover {
+  background-color: #425960;
+}
+
+.headerNav__links {
+  display: flex;
+  color: #8e9b97;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  text-decoration: none;
+}
+
+.headerNav__links:hover {
+  color: aliceblue;
 }

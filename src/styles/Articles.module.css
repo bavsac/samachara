@@ -1,0 +1,37 @@
+.articles__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.article {
+  padding: 2em;
+  border: 1em solid #486067;
+  border-radius: 01em;
+  list-style-type: none;
+}
+
+.article__title {
+  color: #8e9b97;
+  text-decoration: none;
+}
+
+.article__author {
+  color: #dbae58;
+  opacity: 50%;
+}
+.article__votes {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.article__votesButton {
+  border: none;
+  background-color: #8e9b97;
+
+  font-size: large;
+}

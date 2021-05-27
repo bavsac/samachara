@@ -1,0 +1,22 @@
+.article {
+  border: 1em solid #486067;
+  border-radius: 01em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.article__title {
+  color: aliceblue;
+  opacity: 75%;
+}
+
+.article__body {
+  color: aliceblue;
+}
+
+.article__author {
+  color: #dbae58;
+  opacity: 60%;
+}
