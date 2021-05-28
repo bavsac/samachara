@@ -11,12 +11,11 @@ export const getTopics = async () => {
 
 export const getArticles = async (topic, { sortBy, orderIn }) => {
   let path = '/articles';
-  console.log(sortBy, orderIn);
 
   const { data } = await baseApi.get(path, {
     params: {
       topic: topic,
-      // sort_by: sortBy,
+      sort_by: sortBy,
       order_by: orderIn
     }
   });
@@ -66,4 +65,20 @@ export const postComment = async (article_id, { username, body }) => {
     body
   });
   return data.comment;
+};
+
+export const deleteById = async ({ article_id, comment_id }) => {
+  let path;
+  if (comment_id) {
+    path = `/comments/${comment_id}`;
+  } else {
+    path = `/articles/${article_id}`;
+  }
+  const { data } = await baseApi.delete(path);
+
+  return comment_id ? data.comment : data.article;
+};
+
+export const patchById = async ({ comment_id }) => {
+  console.log('patching');
 };

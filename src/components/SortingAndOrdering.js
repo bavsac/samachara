@@ -25,6 +25,9 @@ const SortingAndOrdering = ({ sortBy, setSortBy, orderIn, setOrderIn }) => {
         <option className={styles.sorting__option} value='comment_count'>
           Most Comments
         </option>
+        <option className={styles.sorting__option} value='title'>
+          Title
+        </option>
       </select>
 
       <label className={styles.ordering} htmlFor='order_by'>

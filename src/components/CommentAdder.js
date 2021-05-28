@@ -5,6 +5,7 @@ import styles from '../styles/CommentAdder.module.css';
 import * as api from '../utilities/api';
 import { useContext } from 'react';
 import { UserContext } from './contexts/User';
+import { TextField } from '@material-ui/core';
 
 const CommentAdder = ({ setComments }) => {
   const [comment, setComment] = useState('');
@@ -28,14 +29,15 @@ const CommentAdder = ({ setComments }) => {
         setComment('');
       }}
     >
-      <input
+      <TextField
         className={styles.commentAdder__input}
-        type='text'
-        id='comment'
+        id='outlined-basic'
+        label='Add your comment here'
+        variant='outlined'
         value={comment}
         onChange={(event) => setComment(event.target.value)}
         required
-      />
+      />{' '}
       <button className={styles.commentAdder__button}>Add Comment</button>
     </form>
   );

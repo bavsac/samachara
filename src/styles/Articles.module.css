@@ -8,20 +8,24 @@
   padding-right: 1em;
 }
 .article {
-  padding: 2em;
+  background-color: #d1d3d4;
   border: 1em solid #486067;
   border-radius: 01em;
-  list-style-type: none;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 75%;
 }
 
 .article__title {
-  color: #8e9b97;
+  color: #486067;
+
   text-decoration: none;
 }
 
 .article__author {
   color: #dbae58;
-  opacity: 50%;
 }
 .article__votes {
   display: flex;

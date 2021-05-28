@@ -1,22 +1,22 @@
 .article {
+  background-color: #d1d3d4;
   border: 1em solid #486067;
   border-radius: 01em;
   padding: 1em;
   display: flex;
   flex-direction: column;
   align-content: center;
+  width: 75%;
 }
 
 .article__title {
-  color: aliceblue;
-  opacity: 75%;
+  color: #486067;
 }
 
 .article__body {
-  color: aliceblue;
+  color: #486067;
 }
 
 .article__author {
   color: #dbae58;
-  opacity: 60%;
 }

@@ -2,26 +2,27 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-
   padding-left: 1em;
   padding-right: 1em;
+  text-decoration: none;
+  list-style-type: none;
+  align-items: center;
 }
 .comment {
-  padding: 2em;
+  text-decoration: none;
+  background-color: #d1d3d4;
   border: 1em solid #486067;
   border-radius: 01em;
-  list-style-type: none;
+  width: 75%;
 }
 
 .comment__body {
-  color: #8e9b97;
+  color: #486067;
   text-decoration: none;
 }
 
 .comment__author {
-  color: #dbae58;
-  opacity: 50%;
+  color: #c99f50;
 }
 .comment__votes {
   display: flex;
@@ -31,7 +32,6 @@
 
 .comment__votesButton {
   border: none;
-  background-color: #8e9b97;
-
+  background-color: #818483;
   font-size: large;
 }

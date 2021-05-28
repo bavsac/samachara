@@ -5,27 +5,28 @@ import * as api from '../utilities/api';
 import Errors from './Errors';
 import { useContext } from 'react';
 
-const Votes = ({ article_id, comment_id, votes }) => {
+const Votes = ({ article_id, comment_id, votes, author }) => {
   const [votesChange, setVotesChange] = useState(0);
   const [err, setErr] = useState(null);
   const { user } = useContext(UserContext);
-  const [author, setAuthor] = useState('');
 
   const changeVotes = (NumberOfVotes) => {
+    if (author !== user.username) {
+      setVotesChange((currVotes) => {
+        return currVotes + NumberOfVotes;
+      });
+    } else {
+      setErr('Cannot Vote as this is Self composed');
+    }
     api
       .patchVotesById({ article_id, comment_id }, NumberOfVotes)
-      .then((articleOrComment) => {
-        setAuthor(articleOrComment.author);
-        setVotesChange((currVotes) => {
-          return currVotes + NumberOfVotes;
-        });
-      })
+      .then(() => {})
       .catch((error) => {
         console.log(error.message);
         setErr(error);
       });
   };
-  console.log(user.username, author);
+
   const isDisabled = votesChange !== 0 || user.username === author;
 
   if (err !== null) {

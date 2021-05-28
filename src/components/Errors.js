@@ -5,7 +5,7 @@ const Errors = ({ err }) => {
   console.log(err.message);
   return (
     <div className={styles.errorMessage}>
-      Something Went Wrong. Please try again.
+      OOPS! Something Went Wrong. Please try again.
     </div>
   );
 };
