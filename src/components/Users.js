@@ -8,7 +8,7 @@ import { UserContext } from './contexts/User';
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [err, setErr] = useState(null);
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   useEffect(() => {
     api
@@ -21,10 +21,6 @@ const Users = () => {
         setErr(error);
       });
   }, []);
-
-  const logIn = () => {
-    setUser(user);
-  };
 
   if (err !== null) {
     return <Errors err={err} />;
@@ -45,7 +41,12 @@ const Users = () => {
                 alt={user.username}
               />
               <p className={styles.user__username}>{user.username}</p>
-              <button onClick={logIn}>Select</button>
+              <Link to={`/users/articles/${user.username}`}>
+                Articles by {user.username}
+              </Link>
+              <button onClick={() => setUser(user)}>
+                Select {user.username}
+              </button>
             </Link>
           </li>
         );

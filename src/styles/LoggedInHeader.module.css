@@ -1,0 +1,23 @@
+.loggedInUser {
+  padding-left: 2em;
+  padding-right: 2em;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.loggedInUser__name {
+  color: #c4cbc9;
+  text-decoration: none;
+}
+.loggedInUser__url {
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  padding: 0.1em;
+  max-width: 2.5em;
+  max-height: 2.5em;
+
+  color: #c4cbc9;
+  text-decoration: none;
+}

@@ -1,30 +1,32 @@
 import { useState } from 'react';
-import useCounter from './hooks/useCounter';
+import { UserContext } from './contexts/User';
 import styles from '../styles/Votes.module.css';
 import * as api from '../utilities/api';
 import Errors from './Errors';
+import { useContext } from 'react';
 
 const Votes = ({ article_id, comment_id, votes }) => {
   const [votesChange, setVotesChange] = useState(0);
   const [err, setErr] = useState(null);
+  const { user } = useContext(UserContext);
+  const [author, setAuthor] = useState('');
 
   const changeVotes = (NumberOfVotes) => {
     api
       .patchVotesById({ article_id, comment_id }, NumberOfVotes)
-      .then((article) => {
-        console.log(article.votes);
+      .then((articleOrComment) => {
+        setAuthor(articleOrComment.author);
         setVotesChange((currVotes) => {
           return currVotes + NumberOfVotes;
         });
-        console.log(article);
       })
       .catch((error) => {
         console.log(error.message);
         setErr(error);
       });
   };
-
-  const isDisabled = votesChange !== 0;
+  console.log(user.username, author);
+  const isDisabled = votesChange !== 0 || user.username === author;
 
   if (err !== null) {
     return <Errors err={err} />;

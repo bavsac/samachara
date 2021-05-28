@@ -7,11 +7,13 @@ import Article from './components/Article';
 import Comments from './components/Comments';
 import Users from './components/Users';
 import { UserProvider } from './components/contexts/User';
+import LoggedInHeader from './components/LoggedInHeader';
 
 function App() {
   return (
     <div className='App'>
       <UserProvider>
+        <LoggedInHeader />
         <Header />
         <HeaderNav />
         <Switch>
@@ -28,7 +30,8 @@ function App() {
           <Route exact path='/users'>
             <Users />
           </Route>
-          <Route exact path='/users/:username/articles'>
+
+          <Route exact path='/users/:username'>
             <Users />
           </Route>
         </Switch>

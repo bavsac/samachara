@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import * as api from '../utilities/api';
 import styles from '../styles/Comments.module.css';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Errors from './Errors';
 import Votes from './Votes';
+import CommentAdder from './CommentAdder';
 
 const Comments = () => {
   const [comments, setComments] = useState([]);
@@ -26,6 +27,7 @@ const Comments = () => {
 
   return (
     <ul className={styles.comments__list}>
+      <CommentAdder setComments={setComments} />
       {comments.map((comment) => {
         return (
           <li className={styles.comment} key={comment.comment_id}>

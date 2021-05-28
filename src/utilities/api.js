@@ -9,13 +9,18 @@ export const getTopics = async () => {
   return data.topics;
 };
 
-export const getArticles = async (topic) => {
+export const getArticles = async (topic, { sortBy, orderIn }) => {
   let path = '/articles';
-  if (topic) {
-    path += `?topic=${topic}`;
-  }
-  const { data } = await baseApi.get(path);
-  console.log(data.articles);
+  console.log(sortBy, orderIn);
+
+  const { data } = await baseApi.get(path, {
+    params: {
+      topic: topic,
+      // sort_by: sortBy,
+      order_by: orderIn
+    }
+  });
+
   return data.articles;
 };
 
@@ -29,7 +34,7 @@ export const getArticleById = async (id) => {
 export const getCommentsByArticleId = async (id) => {
   const path = `/articles/${id}/comments`;
   const { data } = await baseApi.get(path);
-  console.log(data.comments);
+
   return data.comments;
 };
 
@@ -53,4 +58,12 @@ export const patchVotesById = async (
 export const getUsers = async () => {
   const { data } = await baseApi.get('/users');
   return data.users;
+};
+
+export const postComment = async (article_id, { username, body }) => {
+  const { data } = await baseApi.post(`/articles/${article_id}/comments`, {
+    username,
+    body
+  });
+  return data.comment;
 };
