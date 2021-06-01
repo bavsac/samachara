@@ -7,6 +7,8 @@ Makes requests to the back end hosted on Heroku to get data and manipulate it ba
 
 During the designing of the app, decisions were made to change the look slightly to make the app more accessable and easy to use.
 
+The decision to make comment nav a child of comments to have easy access to editing the comment list was also made.
+
 **Endpoints**
 
 - '/' -> Shows a list of all articles
